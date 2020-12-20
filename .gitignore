@@ -1,6 +1,11 @@
 ###################
 # compiled source #
 ###################
+*.mdf
+/*.mdf
+*/*.mdf
+**/*.mdf
+*.ldf
 *.com
 *.class
 *.dll
