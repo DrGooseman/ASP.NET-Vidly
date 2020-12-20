@@ -43,9 +43,19 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var movies = _context.Movies.Include(g => g.Genre).ToList();
+            var movies = _context.Movies.Include(c => c.Genre).ToList();
 
             return View(movies);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
         /*
         public ActionResult Index(int? pageIndex, string sortBy)
